@@ -1,7 +1,7 @@
 ---
 title: "The Game of Life"
-author: "Justin Morton"
-student_number: "#0005037199"
+author: "Justin M"
+student_number: "#******7199"
 student_email: "jtmorton1@student.fullsail.edu"
 course: "Project and Portfolio I: Computer Science - Online"
 course_term: "C202201-02"
