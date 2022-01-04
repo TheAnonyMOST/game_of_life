@@ -10,7 +10,7 @@ date_started: "03 Jan 2022"
 ---
 # **Conway’s The Game of Life**
 
-
+![Banner](https://github.com/TheAnonyMOST/game_of_life/blob/main/assets/title.png?raw=true)
 
 This is the repository for my implementation of [John Horton Conway’s The Game of Life.](https://en.wikipedia.org/wiki/Conway's_Game_of_Life)
 
