@@ -10,6 +10,7 @@ namespace GameOfLife
 {
     internal class Cell
     {
+ thismightworkbetter
         public int X { get; }
         public int Y { get; }
         public  bool State { get; set; }
@@ -28,7 +29,6 @@ namespace GameOfLife
         /// </summary>
         public void Toggle() => State = !State;
 
-
         /// <summary>
         /// Checks to see how many of this [Cell]'s neighbors are alive in the given [Universe].
         /// The [Universe]'s grid wraps around for neighbors that would be out of range.
@@ -44,6 +44,7 @@ namespace GameOfLife
         /// <returns></returns>
         public int CheckNeighborsWrap(Cell[,]cells)
         {
+ thismightworkbetter
             var livingNeighbors = 0;
             var wrapX = cells.GetLength(0) - 1;
             var wrapY = cells.GetLength(1) - 1;
@@ -81,6 +82,8 @@ namespace GameOfLife
                 {
                     livingNeighbors++;
                 }  
+
+
             }
 
             return livingNeighbors;
@@ -102,6 +105,7 @@ namespace GameOfLife
         /// <returns></returns>
         public int CheckNeighborsNoWrap(Cell[,] cells)
         {
+thismightworkbetter
             var livingNeighbors = 0;
             var limitX = cells.GetLength(0);
             var limitY = cells.GetLength(1);
@@ -139,6 +143,7 @@ namespace GameOfLife
                 {
                     livingNeighbors++;
                 }   
+
             }
 
             return livingNeighbors;
