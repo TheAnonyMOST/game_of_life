@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GameOfLife
 {
-    public partial class Form1 : Form
+    public partial class TheGameofLife : Form
     {
         // The universe array
         bool[,] universe = new bool[5, 5];
@@ -25,7 +25,7 @@ namespace GameOfLife
         // Generation count
         int generations = 0;
 
-        public Form1()
+        public TheGameofLife()
         {
             InitializeComponent();
 
