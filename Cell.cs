@@ -10,7 +10,6 @@ namespace GameOfLife
 {
     internal class Cell
     {
- thismightworkbetter
         public int X { get; }
         public int Y { get; }
         public  bool State { get; set; }
@@ -44,7 +43,6 @@ namespace GameOfLife
         /// <returns></returns>
         public int CheckNeighborsWrap(Cell[,]cells)
         {
- thismightworkbetter
             var livingNeighbors = 0;
             var wrapX = cells.GetLength(0) - 1;
             var wrapY = cells.GetLength(1) - 1;
@@ -81,7 +79,7 @@ namespace GameOfLife
                 if (neighbor.State)
                 {
                     livingNeighbors++;
-                }  
+                }
 
 
             }
@@ -105,7 +103,7 @@ namespace GameOfLife
         /// <returns></returns>
         public int CheckNeighborsNoWrap(Cell[,] cells)
         {
-thismightworkbetter
+
             var livingNeighbors = 0;
             var limitX = cells.GetLength(0);
             var limitY = cells.GetLength(1);
@@ -142,7 +140,7 @@ thismightworkbetter
                 if (val)
                 {
                     livingNeighbors++;
-                }   
+                }
 
             }
 
