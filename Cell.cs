@@ -9,13 +9,18 @@ namespace GameOfLife
 {
     internal class Cell : Point
     {
-        private bool _state;
-        private ulong _generationsAlive, _generationsDead; 
+        public bool State
+        {
+            get;
+            set;
+        }
+
+        private ulong _generationsAlive, _generationsDead;
 
         public Cell(ulong x, ulong y, bool state = false): base(x:x, y: y)
         {
        
-            _state = state;
+            State = state;
             if (state)
             {
                 _generationsAlive = 1;
@@ -28,21 +33,21 @@ namespace GameOfLife
             }
         }
 
-
+      
 
         public void Kill()
         {
-            if (_state)
+            if (State)
             {
-                _state = false;
+                State = false;
             }
         }
 
         public void Birth()
         {
-            if (!_state)
+            if (!State)
             {
-                _state = true;
+                State = true;
             }
         }
 
