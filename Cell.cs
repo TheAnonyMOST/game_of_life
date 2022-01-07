@@ -91,12 +91,12 @@ namespace GameOfLife
         /// Checks to see how many of this [Cell]'s neighbors are alive in the given [Universe].
         /// This check assumes that any neighboring [Cell]s that would be out of the
         /// [Universe]'s range are dead.
-        /// Neighbors are numbered as follows:\n
-        /// -----------\n
-        /// |1 - 2 - 3|\n
-        /// |4 - * - 5|\n
-        /// |6 - 7 - 8|\n
-        /// -----------\n
+        /// Neighbors are numbered as follows:
+        /// -----------
+        /// |1 - 2 - 3|
+        /// |4 - * - 5|
+        /// |6 - 7 - 8|
+        /// -----------
         /// where the '*' is this Cell.
         /// </summary>
         /// <param name="cells"></param>
@@ -110,28 +110,28 @@ namespace GameOfLife
             var neighborStates = new bool[8]
             {
                 // Neighbor 1
-                X == 0 || Y == 0 ? false : cells[X - 1, Y - 1].State,
+                X != 0 && Y != 0 && cells[X - 1, Y - 1].State,
 
                 // Neighbor 2
-                Y == 0 ? false : cells[X, Y - 1].State,
+                Y != 0 && cells[X, Y - 1].State,
 
                 // Neighbor 3
-                X == limitX || Y == 0 ? false : cells[X + 1, Y - 1].State,
+                X != limitX && Y != 0 && cells[X + 1, Y - 1].State,
 
                 // Neighbor 4
-                X == 0 ? false : cells[X - 1, Y].State,
+                X != 0 && cells[X - 1, Y].State,
 
                 // Neighbor 5
-                X == limitX ? false : cells[X + 1, Y].State,
+                X != limitX && cells[X + 1, Y].State,
 
                 // Neighbor 6
-                X == 0 || Y == limitY ? false : cells[X - 1, Y + 1].State,
+                X != 0 && Y != limitY && cells[X - 1, Y + 1].State,
 
                 // Neighbor 7
-                Y == limitY ? false : cells[X, Y + 1].State,
+                Y != limitY && cells[X, Y + 1].State,
 
                 // Neighbor 8
-                X == limitX || Y == limitY ? false : cells[X + 1, Y + 1].State
+                X != limitX && Y != limitY && cells[X + 1, Y + 1].State
 
             };
 
@@ -141,12 +141,9 @@ namespace GameOfLife
                 {
                     livingNeighbors++;
                 }
-
             }
-
             return livingNeighbors;
         }
-
     }
 }
 

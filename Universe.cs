@@ -13,20 +13,25 @@ namespace GameOfLife
         {
             get;
         }
-
-        public Universe(int width, int height)
+        public ulong Height { get; }
+        public ulong Width { get; }
+        public Universe(ulong width, ulong height)
         {
-            cells = new Cell[width, height];
-            for (int w = 0; w < width; w++)
+            Height = height;
+            Width = width;
+            cells = new Cell[Width, Height];
+            for (ulong w = 0; w < Width; w++)
             {
-                for (int h = 0; h < height; h++)
+                for (ulong h = 0; h < height; h++)
                 {
-                    var cell = new Cell(w,h);
+                    var cell = new Cell((int)w,(int)h);
                     cells[w, h] = cell;
 
                 }
             }
         }
+
+        
 
     }
 }
