@@ -16,10 +16,6 @@ namespace GameOfLife
 
         static void Main()
         {
-            Universe universe;
-            Universe sketchPad;
-            var generation = 0;
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TheGameofLife());
@@ -28,7 +24,24 @@ namespace GameOfLife
 
         private static void CheckCells(Universe universe ,ref Universe sketchPad)
         {
-            var sketchPad = new Universe(universe.Width, universe.Height);
+            for (ulong x= 0; x < universe.Width; x++)
+            {
+                for (ulong y = 0; y < universe.Height; y++)
+                {
+                    switch (universe.cells[x,y].State)
+                    {
+                        case true when universe.cells[x, y].CheckNeighborsWrap(universe.cells)>1 && universe.cells[x, y].CheckNeighborsWrap(universe.cells)<4:
+                            sketchPad.cells[x, y].State = true;
+                            break;
+                        case true:
+                            sketchPad.cells[x, y].State = false;
+                            break;
+                        case false:
+                            sketchPad.cells[x, y].State = universe.cells[x, y].CheckNeighborsWrap(universe.cells) == 3;
+                            break;
+                    }
+                }
+            }
         }
     }
 

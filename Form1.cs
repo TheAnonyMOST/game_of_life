@@ -15,6 +15,8 @@ namespace GameOfLife
         // The universe array
         bool[,] universe = new bool[5, 5];
 
+        private Universe uni = new Universe(5, 5);
+
         // Drawing colors
         Color gridColor = Color.Black;
         Color cellColor = Color.Gray;
@@ -38,14 +40,50 @@ namespace GameOfLife
         // Calculate the next generation of cells
         private void NextGeneration()
         {
-
+            Universe sketchPad = new Universe(uni.Width, uni.Height);
 
             // Increment generation count
             generations++;
 
             // Update status strip generations
             toolStripStatusLabelGenerations.Text = "Generations = " + generations.ToString();
+
+            for (ulong x = 0; x < uni.Width; x++)
+            {
+                for (ulong y = 0; y < uni.Height; y++)
+                {
+                    var aliveNeighbors = uni.cells[x, y].CheckNeighborsWrap(uni.cells);
+                    if (uni.cells[x, y].State)
+                    {
+
+                        if (aliveNeighbors is < 2 or > 3)
+                        {
+                            sketchPad.cells[x, y] = new Cell((int)x, (int)y, false, 0);
+
+                        }
+                        else
+                        {
+                            sketchPad.cells[x, y] = new Cell((int)x, (int)y, true,
+                                uni.cells[x, y].GenerationsAlive + 1);
+                        }
+                    }
+                    else
+                    {
+                        if (aliveNeighbors == 3)
+                        {
+                            sketchPad.cells[x, y] = new Cell((int)x, (int)y, true, 0);
+                        }
+                        else
+                        {
+                            sketchPad.cells[x, y] = new Cell((int)x, (int)y, false, 0);
+
+                        }
+                    }
+
+                }
+            }
         }
+    
 
         // The event called by the timer every Interval milliseconds.
         private void Timer_Tick(object sender, EventArgs e)
@@ -117,6 +155,16 @@ namespace GameOfLife
                 // Tell Windows you need to repaint
                 graphicsPanel1.Invalidate();
             }
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void TheGameofLife_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

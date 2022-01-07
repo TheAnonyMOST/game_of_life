@@ -52,6 +52,7 @@
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelGenerations = new System.Windows.Forms.ToolStripStatusLabel();
+            this.graphicsPanel2 = new GameOfLife.GraphicsPanel();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -190,6 +191,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(1008, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // newToolStripButton
             // 
@@ -243,12 +245,21 @@
             this.toolStripStatusLabelGenerations.Size = new System.Drawing.Size(90, 17);
             this.toolStripStatusLabelGenerations.Text = "Generations = 0";
             // 
+            // graphicsPanel2
+            // 
+            this.graphicsPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.graphicsPanel2.Location = new System.Drawing.Point(0, 49);
+            this.graphicsPanel2.Name = "graphicsPanel2";
+            this.graphicsPanel2.Size = new System.Drawing.Size(1008, 770);
+            this.graphicsPanel2.TabIndex = 3;
+            // 
             // TheGameofLife
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(1008, 841);
+            this.Controls.Add(this.graphicsPanel2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -258,6 +269,7 @@
             this.MinimumSize = new System.Drawing.Size(1024, 880);
             this.Name = "TheGameofLife";
             this.Text = "The Game of Life";
+            this.Load += new System.EventHandler(this.TheGameofLife_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -295,6 +307,7 @@
         private System.Windows.Forms.ToolStripButton saveToolStripButton;
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelGenerations;
+        private GraphicsPanel graphicsPanel2;
     }
 }
 
